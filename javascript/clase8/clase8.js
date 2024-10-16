@@ -1,8 +1,21 @@
-class Person {
-    // Clase Padre
+class Person {    // Clase Padre
+    
+  static contadorPersonas = 0; // Atributo estatico.
+  //email = 'Valor default email'// Atributo no estatico.
+  static get MAX_OBJ(){
+      return 5;// Este metodo simula una constante
+  }
     constructor(nombre, apellido) {
       this._nombre = nombre; // Tener en cuenta que inicializamos con el _ para que no sea igual al del método get.
-      this._apellido = apellido;
+      this._apellido = apellido;     
+      
+        if(Person.contadorPersonas< Person.MAX_OBJ){
+          this.idPersona= ++ Person.contadorPersonas;
+        }
+        else{
+          console.log('Se ha superado el maximo de objetos permitidos')
+        }
+      //console.log('se incrementa el contador: ' + Person.contadorObjetosPersona);
     }
   
     get nombre() {
@@ -23,7 +36,7 @@ class Person {
   
     nombreCompleto() {
       //metodo para devolver el nombre.
-      return this._nombre + " " + this._apellido; // Devolvemos el nombre y el apellido separado con un espacio.
+      return this.idPersona + ' '+ this._nombre + " " + this._apellido; // Devolvemos el nombre y el apellido separado con un espacio.
     }
   
     //Sobreescribiendo el método de la clase padre (Object)
@@ -39,7 +52,7 @@ class Person {
     }
 
     static saludar2(Person){
-        console.log(Person.nombre)
+        console.log(Person.nombre + ' '+ Person.apellido);
     }
   }
   
@@ -95,4 +108,33 @@ class Person {
 
   //personOne.saludar(); no se utiliza desde el objeto.
   Person.saludar();
-Person.saludar2(personOne)
+Person.saludar2(personOne);
+Empleado.saludar();
+Empleado.saludar2(empleado1);
+
+//console.log(personOne.contadorObjetosPersona);
+console.log(Person.contadorObjetosPersona)
+console.log(Empleado.contadorObjetosPersona)
+
+//Atributo no estatico.
+console.log(personOne.email)
+console.log(empleado1.email)
+//console.log(Person.email) No se puede acceder desde la clase
+console.log(personOne.toString());
+console.log(personTwo.toString());
+console.log(empleado1.toString());
+console.log(Person.contadorPersonas)
+let personaTree = new Person('Mia', 'Kalifa')
+console.log(personaTree.toString());
+console.log(Person.contadorPersonas)
+
+console.log(Person.MAX_OBJ)
+Person.MAX_OBJ=10// No se puede modificar, ni alterar.
+
+console.log(Person.MAX_OBJ)
+
+let personaFour = new Person('Juan', 'Roman');
+console.log(personaFour.toString())
+
+let personaFive = new Person('Carlos', 'Tevez');
+console.log(personaFive.toString())
