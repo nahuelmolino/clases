@@ -1,26 +1,25 @@
 
 package domain;
 
-/**
- *
- * @author Programador
- */
 public class Persona {
   //lo private no se hereda a las clases hijas.
     //el modificador de acceso protected esta pensado para la herencia.
     //Atributos de herencia
-    private  String nombre;
-    private char genero;
-    private int edad;
-    private String direccion;
+    protected  String nombre;//por defecto NULL
+    protected char genero;//por defecto '' vacio
+    protected int edad;// por defecto 0
+    protected String direccion; //por defecto NULL
     
     //Constructor vacio: este es para crear objetos sin necesidad de inicializar  los atributos de la clase.
-    
-    public Persona (String nombre){//Constructor 
+    public Persona (){//Constructor - 1 vacio
+        
+    }
+ 
+    public Persona (String nombre){//Constructor- 2--solo nombre
         this.nombre = nombre;
     }
 
-    public Persona(String nombre, char genero, int edad, String direccion) {
+    public Persona(String nombre, char genero, int edad, String direccion) {//Constructor - 3 todos los datos
         this.nombre = nombre;
         this.genero = genero;
         this.edad = edad;
