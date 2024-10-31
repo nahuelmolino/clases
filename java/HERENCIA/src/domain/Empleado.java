@@ -34,7 +34,9 @@ public class Empleado extends Persona {
         //Metodo append, 
         sb.append("Empleado{");
         sb.append("idEmpleado=").append(idEmpleado);
+        sb.append(", Persona=").append(this.getNombre());
         sb.append(", sueldo=").append(sueldo);
+        sb.append(", =").append(super.toString());
         sb.append('}');
         // para devolver un string, usamos el metodo toString() del sb ya que sino no son compatibles.
         return sb.toString();
