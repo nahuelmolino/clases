@@ -9,7 +9,10 @@ public class TestHerencia {
     public static void main(String[] args) {
         Empleado empleado1 = new Empleado("nahuel", 1500.0);
         System.out.println("empleado1 = " + empleado1);
-        Cliente cliente1 = new Cliente(new Date(),true,"Bety",'F',32, "Falsa 123");
+       
+        Date fecha1 = new Date();
+        
+        Cliente cliente1 = new Cliente(fecha1,true,"Bety",'F',32, "Falsa 123");
         System.out.println("cliente1 = " + cliente1);
     }
 }
