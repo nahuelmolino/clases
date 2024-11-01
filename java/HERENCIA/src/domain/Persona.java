@@ -57,11 +57,20 @@ public class Persona {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-    //Esta reescribiendo lo que es el toSTring()
+
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", genero=" + genero + ", edad=" + edad + ", direccion=" + direccion + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Persona{");
+        sb.append("nombre=").append(nombre);
+        sb.append(", genero=").append(genero);
+        sb.append(", edad=").append(edad);
+        sb.append(", direccion=").append(direccion);
+        sb.append(", ").append(super.toString());
+        sb.append('}');
+        return sb.toString();
     }
+
     
     
     
